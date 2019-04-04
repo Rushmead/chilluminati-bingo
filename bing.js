@@ -35,17 +35,13 @@ function generateCards(items) {
 function clickHandler(box) {
     let i = box.id[3];
     let j = box.id[4];
-    board[i][j] = true;
-
-    let bamm = new Audio('bamm.m4a');
-    bamm.play();
-
-    box.style.backgroundColor = "#addaff";
-    console.log(box)
-    
-   // console.log(i, j);
-    console.log(board);
-    checkBoard(i, j);
+    if(!board[i][j]){
+      board[i][j] = true;
+      let bamm = new Audio('bamm.m4a');
+      bamm.play();
+      box.style.backgroundColor = "#addaff";
+      checkBoard(i, j);
+    }
 }
 
 function checkBoard(i, j) {
